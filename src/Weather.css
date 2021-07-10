@@ -1,3 +1,10 @@
 .Weather {
 background-color: #C1CFEA;
 }
+
+.carousel-indicators li {
+  background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+  width: 7px;
+  height: 7px;
+  border-radius: 100%;
+}
