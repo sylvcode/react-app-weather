@@ -1,0 +1,19 @@
+ 
+ .customised {
+   background: #fff;
+   color: #6D64FD !important;
+   opacity: 0.7;
+   box-shadow: 3px 3px 3px #a8adff;
+   margin-left: -20px;
+   margin-top: -2px;
+ }
+
+
+ .customised:hover {
+   background: #fff;
+   color: #f03861 !important;
+   opacity: 0.7;
+   box-shadow: 3px 3px 3px #a8adff;
+   transform: scale(1.05);
+  
+ }
