@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import './Weather.css'
 import axios from 'axios'
+import GetDate from './GetDate'
 
-export default function Weather() {
+export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false })
   function handleResponse(response) {
     console.log(response.data)
@@ -10,7 +11,7 @@ export default function Weather() {
       ready: true,
       temperature: response.data.main.temp,
       humidity: response.data.main.humidity,
-
+      date: new Date(response.data.dt * 1000),
       city: response.data.name,
       description: response.data.weather[0].description,
       iconUrl: 'https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png',
@@ -38,12 +39,7 @@ export default function Weather() {
                     <div className="carousel-item active">
                       <div className="d-flex justify-content-between mb-4 pb-2">
                         <div>
-                          <h3 className="temperature">
-                            <strong>
-                              {' '}
-                              {Math.round(weatherData.temperature)}°C{' '}
-                            </strong>
-                          </h3>
+                          <GetDate date={weatherData.date} />
                           <h4 className="text-muted mb-0">
                             {weatherData.city}
                           </h4>
@@ -63,6 +59,12 @@ export default function Weather() {
                             alt={weatherData.description}
                             className="float-right"
                           ></img>
+                          <h3 className="temperature">
+                            <strong>
+                              {' '}
+                              {Math.round(weatherData.temperature)}°C{' '}
+                            </strong>
+                          </h3>
                         </div>
                       </div>
                     </div>
@@ -217,8 +219,8 @@ export default function Weather() {
     )
   } else {
     const apiKey = '43700ee73704d4a7a92f7aa11e986149'
-    let city = 'Frankfurt'
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
+
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`
     axios.get(apiUrl).then(handleResponse)
 
     return 'Loading...'

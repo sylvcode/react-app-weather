@@ -8,7 +8,7 @@ export default function App() {
     <div className="App">
       <h1>Check the weather</h1>
       <Weatherform />
-      <Weather />
+      <Weather defaultCity="Keflavik" />
       <div className="container">
         <footer>
           Coded by Sylvia
