@@ -16,3 +16,26 @@ padding-bottom: 500px;
     border-radius: 18px !important;
 }
 
+ .customised {
+   background: #fff;
+   color: #6D64FD !important;
+   border-color: #6D64FD !important;
+   margin-left: -40px;
+
+
+ }
+
+ .customised:hover {
+   background: #fff !important;
+   color: #f03861 !important;
+   border-color: #6D64FD !important;
+   opacity: 0.7;
+   box-shadow: 3px 3px 3px #a8adff;
+   transform: scale(1.05);
+ }
+
+
+ form {
+   max-width: 600px;
+   margin: 30px auto;
+ }

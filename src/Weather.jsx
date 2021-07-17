@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
 import './Weather.css'
 import axios from 'axios'
-import GetDate from './GetDate'
+import WeatherInfo from './WeatherInfo'
 
 export default function Weather(props) {
+  const [city, setCity] = useState(props.defaultCity)
   const [weatherData, setWeatherData] = useState({ ready: false })
   function handleResponse(response) {
     console.log(response.data)
     setWeatherData({
+      data: response.data,
       ready: true,
       temperature: response.data.main.temp,
       humidity: response.data.main.humidity,
@@ -18,11 +20,52 @@ export default function Weather(props) {
     })
   }
 
+  function search() {
+    const apiKey = '43700ee73704d4a7a92f7aa11e986149'
+
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
+    axios.get(apiUrl).then(handleResponse)
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault()
+    search()
+
+    // searh for a city make an api call
+  }
+
+  function handleCityChange(event) {
+    setCity(event.target.value)
+    //when someone types a city
+  }
+
   if (weatherData.ready) {
     return (
       <div className="Weather">
         <div className="row d-flex justify-content-center align-items-center h-100">
           <div className="col-md-9 col-lg-7 col-xl-5">
+            <div className="wrapper">
+              <form onSubmit={handleSubmit} id="search-form">
+                <div className="row">
+                  <div className="col-10">
+                    <input
+                      type="search"
+                      placeholder="Enter a city.."
+                      className="form-control"
+                      id="city-input"
+                      onChange={handleCityChange}
+                    />
+                  </div>
+                  <div class="col-2">
+                    <input
+                      type="submit"
+                      value="search"
+                      className="btn btn-outline-success customised"
+                    />
+                  </div>
+                </div>
+              </form>
+            </div>
             <div className="card mb-4 bradius">
               <div className="card-body p-4">
                 <div id="demo1" className="carousel slide" data-ride="carousel">
@@ -39,32 +82,7 @@ export default function Weather(props) {
                     <div className="carousel-item active">
                       <div className="d-flex justify-content-between mb-4 pb-2">
                         <div>
-                          <GetDate date={weatherData.date} />
-                          <h4 className="text-muted mb-0">
-                            {weatherData.city}
-                          </h4>
-                          <p className="text-muted mb-0">
-                            {weatherData.description}
-                          </p>
-                          <p className="text-muted mb-0">
-                            Humidity: {weatherData.humidity} %
-                          </p>
-                          <p className="text-muted mb-0">
-                            Wind: {weatherData.wind} km/h
-                          </p>
-                        </div>
-                        <div>
-                          <img
-                            src={weatherData.iconUrl}
-                            alt={weatherData.description}
-                            className="float-right"
-                          ></img>
-                          <h3 className="temperature">
-                            <strong>
-                              {' '}
-                              {Math.round(weatherData.temperature)}°C{' '}
-                            </strong>
-                          </h3>
+                          <WeatherInfo data={weatherData} />
                         </div>
                       </div>
                     </div>
@@ -218,11 +236,7 @@ export default function Weather(props) {
       </div>
     )
   } else {
-    const apiKey = '43700ee73704d4a7a92f7aa11e986149'
-
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`
-    axios.get(apiUrl).then(handleResponse)
-
+    search()
     return 'Loading...'
   }
 }
