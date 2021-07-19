@@ -1,6 +1,7 @@
 import React from 'react'
 import GetDate from './GetDate'
 import './WeatherInfo.css'
+import WeatherIcon from 'WeatherIcon'
 
 export default function WeatherInfo(props) {
   return (
@@ -18,11 +19,11 @@ export default function WeatherInfo(props) {
               <p className="text-muted mb-0">Wind: {props.data.wind} km/h</p>
             </div>
             <div className="properties">
-              <img
-                src={props.data.iconUrl}
+              <WeatherIcon
+                code={props.data.icon}
                 alt={props.data.description}
-                className="float-right"
-              ></img>
+              />
+
               <h3 className="temperature">
                 <strong> {Math.round(props.data.temperature)}°C </strong>
               </h3>

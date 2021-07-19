@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './Weather.css'
 import axios from 'axios'
 import WeatherInfo from './WeatherInfo'
+import WeatherIcon from './WeatherIcon'
 
 export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity)
@@ -16,7 +17,7 @@ export default function Weather(props) {
       date: new Date(response.data.dt * 1000),
       city: response.data.name,
       description: response.data.weather[0].description,
-      iconUrl: 'https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png',
+      icon: response.data.weather[0].icon,
     })
   }
 
