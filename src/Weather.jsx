@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import './Weather.css'
 import axios from 'axios'
 import WeatherInfo from './WeatherInfo'
-import WeatherIcon from './WeatherIcon'
 
 export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity)
@@ -84,6 +83,7 @@ export default function Weather(props) {
                       <div className="d-flex justify-content-between mb-4 pb-2">
                         <div>
                           <WeatherInfo data={weatherData} />
+                          <WeatherDailyForecast />
                         </div>
                       </div>
                     </div>
