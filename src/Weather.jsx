@@ -7,11 +7,12 @@ import WeatherDailyForecast from './WeatherDailyForecast'
 export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity)
   const [weatherData, setWeatherData] = useState({ ready: false })
+
   function handleResponse(response) {
-    console.log(response.data)
     setWeatherData({
       data: response.data,
       ready: true,
+      coordinates: response.data.coord,
       temperature: response.data.main.temp,
       humidity: response.data.main.humidity,
       date: new Date(response.data.dt * 1000),
@@ -164,7 +165,7 @@ export default function Weather(props) {
                 </div>
               </div>
             </div>
-            <WeatherDailyForecast />
+            <WeatherDailyForecast coordinates={weatherData.coordinates} />
           </div>
         </div>
       </div>
