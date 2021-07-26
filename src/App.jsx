@@ -10,7 +10,7 @@ export default function App() {
       <Weather defaultCity="Keflavik" />
       <div className="container">
         <footer>
-          Coded by Sylvia
+          Coded by Sylvia{' '}
           <a
             href="
   https://github.com/sylviaantons/react-app-weather"
