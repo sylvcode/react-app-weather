@@ -2,6 +2,7 @@ import React from 'react'
 import GetDate from './GetDate'
 import WeatherIcon from './WeatherIcon'
 import WeatherTemperature from './WeatherTemperature'
+import './WeatherInfo.css'
 
 export default function WeatherInfo(props) {
   return (
@@ -9,8 +10,10 @@ export default function WeatherInfo(props) {
       <div className="container">
         <div className="row mx-md-n5">
           <div className="col px-md-5">
-            <h4 className="text-muted mb-0">{props.data.city}</h4>
-            <GetDate date={props.data.date} />
+            <h4 className="mb-0">{props.data.city}</h4>
+            <h3>
+              <GetDate date={props.data.date} />
+            </h3>
             <p className="text-muted mb-0 text-capitalize">
               {props.data.description}
             </p>

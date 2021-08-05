@@ -39,5 +39,8 @@
 }
 
 h1 {
-  font-family: Arial, Helvetica, sans-serif;
+  padding-top: 15px;
+
+  font-family: 'Indie Flower',
+  cursive;
 }

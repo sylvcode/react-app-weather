@@ -1,0 +1,12 @@
+.WeatherInfo h4 {
+  font-size: 36px;
+  color: #6D64FD;
+  font-family: 'Indie Flower',
+  cursive;
+}
+
+.WeatherInfo h3 {
+  padding-top: 10px;
+color:#A8ADFF;
+font-size:22px; 
+}

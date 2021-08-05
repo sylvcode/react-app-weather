@@ -1,8 +1,10 @@
 .Weather {
-background: linear-gradient(to top, #dad4ec 0%, #dad4ec 1%, #f3e7e9 100%);
+background: linear-gradient(to top, #dfe9f3 0%, white 100%);
 font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 padding-top: 20px;
 padding-bottom: 500px;
+
+
 }
 
 .carousel-indicators li {
@@ -27,7 +29,7 @@ padding-bottom: 500px;
 
  .customised:hover {
    background: #fff !important;
-   color: #f03861 !important;
+   color: #a2a8d3 !important;
    border-color: #6D64FD !important;
    opacity: 0.7;
    box-shadow: 3px 3px 3px #a8adff;
@@ -38,4 +40,8 @@ padding-bottom: 500px;
  form {
    max-width: 600px;
    margin: 30px auto;
+ }
+
+ .card{
+    box-shadow: 0px 30px 50px rgba(65, 50, 100, 0.08);
  }
