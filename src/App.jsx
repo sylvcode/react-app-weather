@@ -10,13 +10,13 @@ export default function App() {
       <Weather defaultCity="Keflavik" />
       <div className="container">
         <footer>
-          Coded by Sylvia{' '}
-          <a
-            href="
-  https://github.com/sylviaantons/react-app-weather"
-          >
-            open sourced on Github
-          </a>
+          <h3>
+            <a href="https://github.com/sylviaantons/react-app-weather">
+              Open-source{' '}
+            </a>
+            coded with 💜 by Sylvia. Hosted on
+            <a href="https://www.netlify.com/"> Netlify</a>
+          </h3>
         </footer>
       </div>
     </div>

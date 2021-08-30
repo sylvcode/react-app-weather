@@ -44,3 +44,15 @@ h1 {
   font-family: 'Indie Flower',
   cursive;
 }
+
+a {
+  font-size: 18px;
+  font-weight: 200;
+}
+
+h3 {
+  padding-top: 15px;
+
+  font-family: 'Indie Flower',
+  cursive;
+}
