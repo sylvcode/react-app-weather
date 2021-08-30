@@ -10,6 +10,7 @@ export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity)
 
   function handleResponse(response) {
+    console.log(response)
     setWeatherData({
       ready: true,
       coordinates: response.data.coord,
@@ -58,7 +59,7 @@ export default function Weather(props) {
                       onChange={handleCityChange}
                     />
                   </div>
-                  <div class="col-2">
+                  <div className="col-2">
                     <input
                       type="submit"
                       value="search"
@@ -93,78 +94,6 @@ export default function Weather(props) {
               </div>
             </div>
 
-            <div className="card mb-4 bradius">
-              <div className="card-body p-4">
-                <div id="demo2" className="carousel slide" data-ride="carousel">
-                  <ul className="carousel-indicators mb-0">
-                    <li data-target="#demo2" data-slide-to="0"></li>
-                    <li
-                      data-target="#demo2"
-                      data-slide-to="1"
-                      className="active"
-                    ></li>
-                    <li data-target="#demo2" data-slide-to="2"></li>
-                  </ul>
-
-                  <div className="carousel-inner">
-                    <div className="carousel-item active">
-                      <div className="d-flex justify-content-around text-center mb-4 pb-3 pt-2">
-                        <div className="flex-column">
-                          <p className="small">
-                            <strong>21°C</strong>
-                          </p>
-                          <i className="fas fa-sun fa-2x mb-3"></i>
-                          <p className="mb-0">
-                            <strong>12:00</strong>
-                          </p>
-                          <p className="mb-0 text-muted">PM</p>
-                        </div>
-                        <div className="flex-column">
-                          <p className="small">
-                            <strong>2°C</strong>
-                          </p>
-                          <i className="fas fa-sun fa-2x mb-3"></i>
-                          <p className="mb-0">
-                            <strong>1:00</strong>
-                          </p>
-                          <p className="mb-0 text-muted">PM</p>
-                        </div>
-                        <div className="flex-column">
-                          <p className="small">
-                            <strong>20°C</strong>
-                          </p>
-                          <i className="fas fa-cloud fa-2x mb-3"></i>
-                          <p className="mb-0">
-                            <strong>2:00</strong>
-                          </p>
-                          <p className="mb-0 text-muted">PM</p>
-                        </div>
-                        <div className="flex-column">
-                          <p className="small">
-                            <strong>19°C</strong>
-                          </p>
-                          <i className="fas fa-cloud fa-2x mb-3"></i>
-                          <p className="mb-0">
-                            <strong>3:00</strong>
-                          </p>
-                          <p className="mb-0 text-muted">PM</p>
-                        </div>
-                        <div className="flex-column">
-                          <p className="small">
-                            <strong>18°C</strong>
-                          </p>
-                          <i className="fas fa-cloud-showers-heavy fa-2x mb-3"></i>
-                          <p className="mb-0">
-                            <strong>4:00</strong>
-                          </p>
-                          <p className="mb-0 text-muted">PM</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
             <WeatherForecast coordinates={weatherData.coordinates} />
           </div>
         </div>
