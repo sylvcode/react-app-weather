@@ -11,7 +11,7 @@ export default function App() {
       <div className="container">
         <footer>
           <h3>
-            <a href="https://github.com/sylviaantons/react-app-weather">
+            <a href="https://github.com/sylvcode/react-app-weather">
               Open-source{' '}
             </a>
             coded with 💜 by Sylvia. Hosted on
