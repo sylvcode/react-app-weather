@@ -17,7 +17,7 @@ export default function HourlyWeather(props) {
                 {props.hourly.map((syl, index) => {
                   if (index > 5) return null
                   return (
-                    <div className="flex-column">
+                    <div className="flex-column" key={syl.dt}>
                       <p className="small">
                         <strong>{Math.round(syl.temp)}C</strong>
                       </p>
